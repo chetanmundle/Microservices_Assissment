@@ -1,0 +1,84 @@
+{
+  "Routes": [
+    // Restaurant Service
+    // Restourant controller
+    {
+      "DownstreamPathTemplate": "/api/restaurants/getrestaurantbyid/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7004
+        }
+      ],
+      "UpstreamPathTemplate": "/restaurants/getrestaurantbyid/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    // Menu controller
+    {
+      "DownstreamPathTemplate": "/api/menuitems/getallmenuitems",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7004
+        }
+      ],
+      "UpstreamPathTemplate": "/menuitems/getallmenuitems",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/menuitems/getmenubymenuid/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7004
+        }
+      ],
+      "UpstreamPathTemplate": "/menuitems/getmenubymenuid/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    // Order apis
+    {
+      "DownstreamPathTemplate": "/api/orders/placeorder",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/placeorder",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/orders/getorderbyid/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/getorderbyid/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    // Delivery Service
+    {
+      "DownstreamPathTemplate": "/api/delivery/assigndelivery",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/delivery/assigndelivery",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+  ],
+  "GlobalConfiguration": { "BaseUrl": "http://localhost:5000" }
+}
