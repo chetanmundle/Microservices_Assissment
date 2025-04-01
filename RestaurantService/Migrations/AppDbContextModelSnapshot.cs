@@ -59,7 +59,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 1,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 46, 3, 192, DateTimeKind.Local).AddTicks(799),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4353),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Gulab Jamun",
@@ -69,21 +69,291 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 2,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 46, 3, 192, DateTimeKind.Local).AddTicks(839),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4364),
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Samosa",
-                            Price = 50m,
+                            Name = "Paneer Butter Masala",
+                            Price = 250m,
                             RestaurantId = 1
                         },
                         new
                         {
                             MenuItemId = 3,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 46, 3, 192, DateTimeKind.Local).AddTicks(867),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4365),
                             IsActive = true,
                             IsDeleted = false,
-                            Name = "Kachori",
+                            Name = "Chicken Biryani",
+                            Price = 300m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 4,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4367),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Mutton Rogan Josh",
+                            Price = 350m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 5,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4368),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Dal Makhani",
+                            Price = 180m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 6,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4372),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Butter Naan",
                             Price = 50m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 7,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4373),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Masala Dosa",
+                            Price = 120m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 8,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4374),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Idli Sambar",
+                            Price = 90m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 9,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4375),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Tandoori Chicken",
+                            Price = 400m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 10,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4377),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Fish Curry",
+                            Price = 320m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 11,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4378),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Veg Pulao",
+                            Price = 160m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 12,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4379),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Rajma Chawal",
+                            Price = 170m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 13,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4380),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Aloo Paratha",
+                            Price = 80m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 14,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4382),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Malai Kofta",
+                            Price = 230m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 15,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4383),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Shahi Paneer",
+                            Price = 260m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 16,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4384),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Chole Bhature",
+                            Price = 150m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 17,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4385),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Chicken Tikka Masala",
+                            Price = 310m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 18,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4387),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Prawn Curry",
+                            Price = 370m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 19,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4388),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Mushroom Masala",
+                            Price = 210m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 20,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4389),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Egg Curry",
+                            Price = 200m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 21,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4390),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Hakka Noodles",
+                            Price = 140m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 22,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4391),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Spring Rolls",
+                            Price = 130m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 23,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4392),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Chicken Manchurian",
+                            Price = 270m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 24,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4393),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Veg Manchurian",
+                            Price = 190m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 25,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4394),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Mutton Keema",
+                            Price = 330m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 26,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4395),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Bhindi Masala",
+                            Price = 160m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 27,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4396),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Dal Tadka",
+                            Price = 170m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 28,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4397),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Kadhai Paneer",
+                            Price = 250m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 29,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4398),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Jeera Rice",
+                            Price = 120m,
+                            RestaurantId = 1
+                        },
+                        new
+                        {
+                            MenuItemId = 30,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4399),
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Chocolate Brownie",
+                            Price = 180m,
                             RestaurantId = 1
                         });
                 });
@@ -117,7 +387,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             RestaurantId = 1,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 46, 3, 192, DateTimeKind.Local).AddTicks(563),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4257),
                             IsActive = true,
                             IsDeleted = false,
                             RestaurantName = "Arav Dhaba"

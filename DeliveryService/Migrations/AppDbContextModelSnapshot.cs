@@ -90,62 +90,302 @@ namespace DeliveryService.Migrations
                         new
                         {
                             DeliveryPersonId = 1,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 45, 44, 885, DateTimeKind.Local).AddTicks(5764),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2690),
                             IsActive = true,
                             IsAvailable = true,
                             IsDeleted = false,
-                            Name = "John M",
-                            PhoneNumber = "1234567890"
+                            Name = "John",
+                            PhoneNumber = "5698745892"
                         },
                         new
                         {
                             DeliveryPersonId = 2,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 45, 44, 885, DateTimeKind.Local).AddTicks(5820),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2704),
                             IsActive = true,
                             IsAvailable = true,
                             IsDeleted = false,
-                            Name = "Melon ",
-                            PhoneNumber = "2342356743"
+                            Name = "Alice",
+                            PhoneNumber = "6589741235"
                         },
                         new
                         {
                             DeliveryPersonId = 3,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 45, 44, 885, DateTimeKind.Local).AddTicks(5845),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2705),
                             IsActive = true,
                             IsAvailable = true,
                             IsDeleted = false,
-                            Name = "Keloni S T ",
-                            PhoneNumber = "7684635238"
+                            Name = "Michael",
+                            PhoneNumber = "7458963214"
                         },
                         new
                         {
                             DeliveryPersonId = 4,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 45, 44, 885, DateTimeKind.Local).AddTicks(5866),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2707),
                             IsActive = true,
                             IsAvailable = true,
                             IsDeleted = false,
-                            Name = "Mr. R L",
-                            PhoneNumber = "0983727843"
+                            Name = "Emma",
+                            PhoneNumber = "8523697415"
                         },
                         new
                         {
                             DeliveryPersonId = 5,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 45, 44, 885, DateTimeKind.Local).AddTicks(5888),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2708),
                             IsActive = true,
                             IsAvailable = true,
                             IsDeleted = false,
-                            Name = "Steno Dev",
-                            PhoneNumber = "8378394384"
+                            Name = "Robert",
+                            PhoneNumber = "9632587416"
                         },
                         new
                         {
                             DeliveryPersonId = 6,
-                            CreatedDate = new DateTime(2025, 3, 31, 21, 45, 44, 885, DateTimeKind.Local).AddTicks(5914),
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2811),
                             IsActive = true,
                             IsAvailable = true,
                             IsDeleted = false,
-                            Name = "John M",
-                            PhoneNumber = "1234567890"
+                            Name = "Sophia",
+                            PhoneNumber = "7418529635"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 7,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2814),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "William",
+                            PhoneNumber = "1597534862"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 8,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2815),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Olivia",
+                            PhoneNumber = "3571598246"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 9,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2816),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "James",
+                            PhoneNumber = "2589631475"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 10,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2818),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Isabella",
+                            PhoneNumber = "3698521475"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 11,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2819),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Benjamin",
+                            PhoneNumber = "4561237895"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 12,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2820),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Mia",
+                            PhoneNumber = "7896541236"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 13,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2821),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Daniel",
+                            PhoneNumber = "8527419635"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 14,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2821),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Charlotte",
+                            PhoneNumber = "7419638521"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 15,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2822),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Elijah",
+                            PhoneNumber = "7531596248"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 16,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2823),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Amelia",
+                            PhoneNumber = "8523579516"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 17,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2824),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Henry",
+                            PhoneNumber = "9517538524"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 18,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2832),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Harper",
+                            PhoneNumber = "7894561239"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 19,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2834),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Lucas",
+                            PhoneNumber = "9514263875"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 20,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2835),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Evelyn",
+                            PhoneNumber = "3652147895"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 21,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2837),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Mason",
+                            PhoneNumber = "1247896352"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 22,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2838),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Avery",
+                            PhoneNumber = "6985741325"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 23,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2839),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Logan",
+                            PhoneNumber = "3574126985"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 24,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2840),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Scarlett",
+                            PhoneNumber = "7895236147"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 25,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2841),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Ethan",
+                            PhoneNumber = "4126985732"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 26,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2842),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Abigail",
+                            PhoneNumber = "7896523145"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 27,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2843),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Alexander",
+                            PhoneNumber = "1236985742"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 28,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2843),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Grace",
+                            PhoneNumber = "6987415236"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 29,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2844),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Jack",
+                            PhoneNumber = "2143658796"
+                        },
+                        new
+                        {
+                            DeliveryPersonId = 30,
+                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 5, 383, DateTimeKind.Local).AddTicks(2845),
+                            IsActive = true,
+                            IsAvailable = true,
+                            IsDeleted = false,
+                            Name = "Ella",
+                            PhoneNumber = "9874563215"
                         });
                 });
 #pragma warning restore 612, 618
