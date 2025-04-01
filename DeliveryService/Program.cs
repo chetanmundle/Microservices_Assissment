@@ -1,5 +1,6 @@
 
 using DeliveryService.Entities;
+using DeliveryService.Service;
 using DeliveryService.Service.IService;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ namespace DeliveryService
 
             // Add services to the container.
             builder.Services.AddScoped<IDeliveryService, DeliveryService.Service.DeliveryService>();
+            // Register RabbitMQ Listener as a Hosted Service
+            builder.Services.AddHostedService<RabbitMqListener>();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
