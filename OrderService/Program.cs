@@ -14,6 +14,7 @@ namespace OrderService
 
             // Add services to the container.
             builder.Services.AddScoped<IOrderService, OrderService.Service.OrderService>();
+            builder.Services.AddSingleton<IRabbitMqService, RabbitMqService>(); // Register RabbitMQ Service
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {

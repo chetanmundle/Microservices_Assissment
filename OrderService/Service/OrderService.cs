@@ -12,10 +12,15 @@ namespace OrderService.Service
     public class OrderService : IOrderService
     {
         private readonly AppDbContext _appDbContext;
+        private readonly IRabbitMqService _rabbitMqService;
 
-        public OrderService(AppDbContext appDbContext)
+        public OrderService(
+            AppDbContext appDbContext,
+            IRabbitMqService rabbitMqService
+            )
         {
             _appDbContext = appDbContext;
+            _rabbitMqService = rabbitMqService;
         }
 
         public async Task<AppResponse<OrderDto>> PlaceOrderAsync(PlaceOrderDto req)
@@ -31,6 +36,12 @@ namespace OrderService.Service
                 };
                 await _appDbContext.Orders.AddAsync(order);
                 await _appDbContext.SaveChangesAsync();
+                var assignDeliveryDto = new AssignDeliveryDto()
+                {
+                    OrderId = order.OrderId,
+                };
+                await _rabbitMqService.SendMessageAsync(assignDeliveryDto);
+
                 return AppResponse.Success(order.Adapt<OrderDto>());
             }
             catch (Exception ex)
