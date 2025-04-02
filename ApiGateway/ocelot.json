@@ -12,7 +12,11 @@
         }
       ],
       "UpstreamPathTemplate": "/restaurants/getrestaurantbyid/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     // Menu controller
     {
@@ -25,8 +29,13 @@
         }
       ],
       "UpstreamPathTemplate": "/menuitems/getallmenuitems",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
+
     {
       "DownstreamPathTemplate": "/api/menuitems/getmenubymenuid/{id}",
       "DownstreamScheme": "https",
@@ -51,7 +60,11 @@
         }
       ],
       "UpstreamPathTemplate": "/orders/placeorder",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/orders/getorderbyid/{id}",
@@ -77,6 +90,33 @@
         }
       ],
       "UpstreamPathTemplate": "/delivery/assigndelivery",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+
+
+    // Auth Service
+    {
+      "DownstreamPathTemplate": "/api/users/register",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7005
+        }
+      ],
+      "UpstreamPathTemplate": "/users/register",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7005
+        }
+      ],
+      "UpstreamPathTemplate": "/users/login",
       "UpstreamHttpMethod": [ "POST" ]
     }
   ],

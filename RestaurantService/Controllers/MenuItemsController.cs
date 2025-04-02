@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantService.Service.IService;
 
@@ -16,6 +17,7 @@ namespace RestaurantService.Controllers
         }
 
         [HttpGet("getallmenuitems")]
+        [Authorize]
         public async Task<IActionResult> GetAllMenuItems()
         {
             var serviceResponse = await _menuItemService.GetAllMenuItemsAsync();
@@ -23,6 +25,7 @@ namespace RestaurantService.Controllers
         }
 
         [HttpGet("getmenubymenuid/{id}")]
+        //[Authorize]
         public async Task<IActionResult> GetMenuByMenuId(int id)
         {
             var serviceResponse = await _menuItemService.GetMenuItemByIdAsync(id);

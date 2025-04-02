@@ -89,3 +89,11 @@ D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\obj\D
 D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\obj\Debug\net8.0\ApiGateway.pdb
 D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\obj\Debug\net8.0\ApiGateway.genruntimeconfig.cache
 D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\obj\Debug\net8.0\ref\ApiGateway.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\ApiGateway\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

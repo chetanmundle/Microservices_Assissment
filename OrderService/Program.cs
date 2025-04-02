@@ -1,8 +1,12 @@
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using OrderService.Data;
 using OrderService.Service;
 using OrderService.Service.IService;
+using OrderService.Utility;
+using System.Text;
 
 namespace OrderService
 {
@@ -13,8 +17,17 @@ namespace OrderService
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddHttpClient();
             builder.Services.AddScoped<IOrderService, OrderService.Service.OrderService>();
             builder.Services.AddSingleton<IRabbitMqService, RabbitMqService>(); // Register RabbitMQ Service
+
+            // assign the url of the apiGatway
+            SD.ApiGatwayAPIBase = builder.Configuration["ServiceUrls:ApiGatwayAPIBase"];
+
+            builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+            builder.Services.AddScoped<IBaseService, BaseService>();
+            builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
@@ -26,6 +39,31 @@ namespace OrderService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //Jwt Configuration
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
+                    ValidAudience = builder.Configuration["JwtConfig:Audience"],
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    //ClockSkew = TimeSpan.Zero, // Set clock skew to zero to avoid any tolerance
+
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["JwtConfig:Key"])),
+                };
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -36,7 +74,8 @@ namespace OrderService
             }
 
             app.UseHttpsRedirection();
-
+            //Add jwt middleware   
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
