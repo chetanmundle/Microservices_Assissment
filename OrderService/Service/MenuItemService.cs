@@ -26,7 +26,7 @@ namespace OrderService.Service
             {
                 ApiType = SD.ApiType.GET,
                 Url = SD.ApiGatwayAPIBase + "/menuitems/getmenubymenuid/" + id
-            }, false);
+            });
         }
     }
 }

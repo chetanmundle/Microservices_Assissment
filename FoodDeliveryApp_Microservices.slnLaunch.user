@@ -21,6 +21,11 @@
         "Path": "DeliveryService\\DeliveryService.csproj",
         "Action": "Start",
         "DebugTarget": "https"
+      },
+      {
+        "Path": "AuthService\\AuthService.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
       }
     ]
   }

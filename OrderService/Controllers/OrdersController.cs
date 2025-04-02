@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrderService.Model;
 using OrderService.Service.IService;
@@ -17,6 +18,7 @@ namespace OrderService.Controllers
         }
 
         [HttpPost("placeorder")]
+        [Authorize]
         public async Task<IActionResult> PlaceOrder(PlaceOrderDto model)
         {
             var serviceResponse = await _orderService.PlaceOrderAsync(model);

@@ -25,7 +25,7 @@ namespace RestaurantService.Controllers
         }
 
         [HttpGet("getmenubymenuid/{id}")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> GetMenuByMenuId(int id)
         {
             var serviceResponse = await _menuItemService.GetMenuItemByIdAsync(id);

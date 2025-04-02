@@ -65,10 +65,6 @@
       "PlaceOrderDto": {
         "type": "object",
         "properties": {
-          "restaurantId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "menuItemId": {
             "type": "integer",
             "format": "int32"
