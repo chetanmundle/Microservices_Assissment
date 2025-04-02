@@ -77,5 +77,23 @@ namespace OrderService.Service
                 return AppResponse.Fail<OrderDto>(null, ex.Message, HttpStatusCodes.InternalServerError);
             }
         }
+
+        public async Task<AppResponse> CompleteOrderAsync(int id)
+        {
+            try
+            {
+                var order = await _appDbContext.Orders.FirstOrDefaultAsync(o => o.OrderId == id);
+                if (order is null) return AppResponse.Response(false, "Order with this Id not Found", HttpStatusCodes.NotFound);
+                order.Status = "Completed";
+                
+                await _appDbContext.SaveChangesAsync();
+                return AppResponse.Response(true, "Order Completed Successfully", HttpStatusCodes.OK);
+
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Response(false, ex.Message, HttpStatusCodes.OK);
+            }
+        }
     }
 }

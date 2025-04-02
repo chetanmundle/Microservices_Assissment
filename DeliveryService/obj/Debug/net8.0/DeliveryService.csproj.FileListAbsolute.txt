@@ -427,3 +427,4 @@ D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\DeliveryServic
 D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\DeliveryService\obj\Debug\net8.0\DeliveryService.pdb
 D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\DeliveryService\obj\Debug\net8.0\DeliveryService.genruntimeconfig.cache
 D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\DeliveryService\obj\Debug\net8.0\ref\DeliveryService.dll
+D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\DeliveryService\bin\Debug\net8.0\Newtonsoft.Json.dll

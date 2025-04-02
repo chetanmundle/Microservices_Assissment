@@ -2,6 +2,7 @@
 using DeliveryService.Entities;
 using DeliveryService.Service;
 using DeliveryService.Service.IService;
+using DeliveryService.Utility;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -16,9 +17,17 @@ namespace DeliveryService
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddHttpClient();
             builder.Services.AddScoped<IDeliveryService, DeliveryService.Service.DeliveryService>();
             // Register RabbitMQ Listener as a Hosted Service
             builder.Services.AddHostedService<RabbitMqListener>();
+
+            // assign the url of the apiGatway
+            SD.ApiGatwayAPIBase = builder.Configuration["ServiceUrls:ApiGatwayAPIBase"];
+            builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+            builder.Services.AddScoped<IBaseService, BaseService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
