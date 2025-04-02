@@ -32,5 +32,12 @@ namespace OrderService.Controllers
             return Ok(serviceResponse);
         }
 
+        [HttpGet("completeorder/orderid/{id:int}")]
+        public async Task<IActionResult> CompleteOrderByOrderId(int id)
+        {
+            var serviceResposne = await _orderService.CompleteOrderAsync(id);
+            return Ok(serviceResposne);
+        }
+
     }
 }

@@ -22,5 +22,12 @@ namespace DeliveryService.Controllers
             var serviceResponse = await _deliveryService.AssignDelivery(model);
             return Ok(serviceResponse);
         }
+
+        [HttpGet("completedelivery/deliveryid/{id:int}")]
+        public async Task<IActionResult> CompleteDeliveryByDeliveryId(int id)
+        {
+            var serviceResponse = await _deliveryService.CompleteDeliveryAsync(id);
+            return Ok(serviceResponse);
+        }
     }
 }

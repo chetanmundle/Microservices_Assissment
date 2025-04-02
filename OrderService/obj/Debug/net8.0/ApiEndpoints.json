@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "OrderService.Controllers.OrdersController",
+    "Method": "CompleteOrderByOrderId",
+    "RelativePath": "api/orders/completeorder/orderid/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OrderService.Controllers.OrdersController",
     "Method": "GetOrderById",
     "RelativePath": "api/orders/getorderbyid/{id}",
     "HttpMethod": "GET",

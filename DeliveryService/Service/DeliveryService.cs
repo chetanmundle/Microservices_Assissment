@@ -11,9 +11,11 @@ namespace DeliveryService.Service
     public class DeliveryService : IDeliveryService
     {
         private readonly AppDbContext _appDbContext;
-        public DeliveryService(AppDbContext appDbContext)
+        private readonly IOrderService _orderService;
+        public DeliveryService(AppDbContext appDbContext, IOrderService orderService)
         {
             _appDbContext = appDbContext;
+            _orderService = orderService;
         }
         public async Task<AppResponse<DeliveryDto>> AssignDelivery(AssignDeliveryDto req)
         {
@@ -41,6 +43,32 @@ namespace DeliveryService.Service
             catch (Exception ex)
             {
                 return AppResponse.Fail<DeliveryDto>(null, ex.Message);
+            }
+        }
+
+        public async Task<AppResponse> CompleteDeliveryAsync(int deliveryId)
+        {
+            try
+            {
+                var delivery = await _appDbContext.Deliveries
+                    .FirstOrDefaultAsync(d => d.DeliveryPersonId == deliveryId);
+
+                if(delivery == null) return AppResponse.Response(false, "Data Not found",HttpStatusCodes.NotFound);
+
+                // Here http Call to order
+                var completeOrderRes = await _orderService.CompleteOrderAsync(delivery.OrderId);
+
+                if(!completeOrderRes.IsSuccess) 
+                    return AppResponse.Response(false, completeOrderRes.Message, HttpStatusCodes.InternalServerError);
+
+                delivery.Status = "Completed";
+
+                await _appDbContext.SaveChangesAsync();
+                return AppResponse.Response(true, "Delivery Completed Successfully", HttpStatusCodes.OK);
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Response(false, ex.Message, HttpStatusCodes.InternalServerError);
             }
         }
     }
