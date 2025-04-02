@@ -282,3 +282,4 @@ D:\Assessment\Microservices_Assessment\Microservices_Assissment\OrderService\obj
 D:\Assessment\Microservices_Assessment\Microservices_Assissment\OrderService\obj\Debug\net8.0\OrderService.genruntimeconfig.cache
 D:\Assessment\Microservices_Assessment\Microservices_Assissment\OrderService\obj\Debug\net8.0\ref\OrderService.dll
 D:\Assessment\Microservices_Assessment\Microservices_Assissment\OrderService\bin\Debug\net8.0\RabbitMQ.Client.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\OrderService\bin\Debug\net8.0\Newtonsoft.Json.dll

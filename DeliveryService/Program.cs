@@ -2,7 +2,10 @@
 using DeliveryService.Entities;
 using DeliveryService.Service;
 using DeliveryService.Service.IService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace DeliveryService
 {
@@ -27,6 +30,31 @@ namespace DeliveryService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            //Jwt Configuration
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = builder.Configuration["JwtConfig:Issuer"],
+                    ValidAudience = builder.Configuration["JwtConfig:Audience"],
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    //ClockSkew = TimeSpan.Zero, // Set clock skew to zero to avoid any tolerance
+
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["JwtConfig:Key"])),
+                };
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -37,7 +65,8 @@ namespace DeliveryService
             }
 
             app.UseHttpsRedirection();
-
+            //Add jwt middleware   
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
