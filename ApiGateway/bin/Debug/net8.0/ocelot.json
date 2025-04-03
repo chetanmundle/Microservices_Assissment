@@ -12,11 +12,7 @@
         }
       ],
       "UpstreamPathTemplate": "/restaurants/getrestaurantbyid/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      }
+      "UpstreamHttpMethod": [ "GET" ]
     },
     // Menu controller
     {
