@@ -95,5 +95,39 @@ namespace OrderService.Service
                 return AppResponse.Response(false, ex.Message, HttpStatusCodes.OK);
             }
         }
+
+        public async Task<AppResponse<IEnumerable<OrderDto>>> GetAllOrdersAsync()
+        {
+            try
+            {
+                var orders = await _appDbContext.Orders
+                    .Where(o => o.IsDeleted == false && o.IsActive == true)
+                    .AsNoTracking()
+                    .ToListAsync();
+                var ordesDtoList = orders.Adapt<IEnumerable<OrderDto>>();
+                return AppResponse.Success(ordesDtoList);
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Fail<IEnumerable<OrderDto>>([], ex.Message, HttpStatusCodes.InternalServerError);
+            }
+        }
+
+        public async Task<AppResponse<IEnumerable<OrderDto>>> GetOrdersByUserIdAsync(int id)
+        {
+            try
+            {
+                var orders = await _appDbContext.Orders
+                    .Where(o => o.UserId == id && o.IsDeleted == false && o.IsActive == true )
+                    .AsNoTracking()
+                    .ToListAsync();
+                var ordesDtoList = orders.Adapt<IEnumerable<OrderDto>>();
+                return AppResponse.Success(ordesDtoList);
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Fail<IEnumerable<OrderDto>>([], ex.Message, HttpStatusCodes.InternalServerError);
+            }
+        }
     }
 }

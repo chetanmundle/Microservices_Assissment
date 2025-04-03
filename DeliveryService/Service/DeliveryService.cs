@@ -51,7 +51,7 @@ namespace DeliveryService.Service
             try
             {
                 var delivery = await _appDbContext.Deliveries
-                    .FirstOrDefaultAsync(d => d.DeliveryPersonId == deliveryId);
+                    .FirstOrDefaultAsync(d => d.DeliveryId == deliveryId);
 
                 if(delivery == null) return AppResponse.Response(false, "Data Not found",HttpStatusCodes.NotFound);
 

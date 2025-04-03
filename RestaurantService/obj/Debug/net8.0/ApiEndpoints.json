@@ -26,6 +26,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "RestaurantService.Controllers.MenuItemsController",
+    "Method": "SerarchMenuByRestaurant",
+    "RelativePath": "api/menuitems/serarchMenuByRestaurant",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "RestaurantService.Model.SearchMenuByRestaurantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "RestaurantService.Controllers.RestaurantController",
     "Method": "GetRestaurantById",
     "RelativePath": "api/restaurants/getrestaurantbyid/{id}",

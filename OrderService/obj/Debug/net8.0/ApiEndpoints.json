@@ -17,8 +17,34 @@
   },
   {
     "ContainingType": "OrderService.Controllers.OrdersController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/orders/getAllOrders",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OrderService.Controllers.OrdersController",
     "Method": "GetOrderById",
     "RelativePath": "api/orders/getorderbyid/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OrderService.Controllers.OrdersController",
+    "Method": "GetOrdersByUserId",
+    "RelativePath": "api/orders/getOrdersByUserId/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
