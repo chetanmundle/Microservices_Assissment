@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RestaurantService.Model;
 using RestaurantService.Service.IService;
 
 namespace RestaurantService.Controllers
@@ -32,5 +33,12 @@ namespace RestaurantService.Controllers
             return Ok(serviceResponse);
         }
 
+        [HttpPost("serarchMenuByRestaurant")]
+        [Authorize]
+        public async Task<IActionResult> SerarchMenuByRestaurant(SearchMenuByRestaurantDto model)
+        {
+            var serviceResponse = await _menuItemService.SerarchMenuByRestaurant(model);
+            return Ok(serviceResponse);
+        }
     }
 }

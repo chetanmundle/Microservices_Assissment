@@ -35,8 +35,22 @@ namespace OrderService.Controllers
         [HttpGet("completeorder/orderid/{id:int}")]
         public async Task<IActionResult> CompleteOrderByOrderId(int id)
         {
-            var serviceResposne = await _orderService.CompleteOrderAsync(id);
-            return Ok(serviceResposne);
+            var serviceResponse = await _orderService.CompleteOrderAsync(id);
+            return Ok(serviceResponse);
+        }
+
+        [HttpGet("getAllOrders")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var serviceResponse = await _orderService.GetAllOrdersAsync();
+            return Ok(serviceResponse);
+        }
+
+        [HttpGet("getOrdersByUserId/{id:int}")]
+        public async Task<IActionResult> GetOrdersByUserId(int id)
+        {
+            var serviceResponse = await _orderService.GetOrdersByUserIdAsync(id);
+            return Ok(serviceResponse);
         }
 
     }

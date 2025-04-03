@@ -21,5 +21,6 @@ namespace RestaurantService.Controllers
             var serviceResponse = await _restaurantService.GetRestaurantByIdAsync(id);
             return Ok(serviceResponse);
         }
+
     }
 }

@@ -51,5 +51,34 @@ namespace RestaurantService.Service
                 return AppResponse.Fail<MenuItemsDto>(null, ex.Message, HttpStatusCodes.InternalServerError);
             }
         }
+
+        public async Task<AppResponse<IEnumerable<MenuItemsDto>>> SerarchMenuByRestaurant(SearchMenuByRestaurantDto model)
+        {
+            try
+            {
+                    if(model == null)
+                        return AppResponse.Fail<IEnumerable<MenuItemsDto>>([], "null Body", HttpStatusCodes.BadRequest);
+
+                    var restaurant = await _appDbContext.Restaurants
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(r => (r.RestaurantName.ToLower() == model.RestaurantName.ToLower() || r.RestaurantId == model.RestaurantId)
+                                                  && r.IsDeleted == false);
+
+                    if(restaurant is null)
+                        return AppResponse.Fail<IEnumerable<MenuItemsDto>>([], "No Restaurant Found for this", HttpStatusCodes.BadRequest);
+
+                     var menus = await _appDbContext.MenuItems
+                             .Where(m => m.RestaurantId == restaurant.RestaurantId && m.IsDeleted == false && m.IsActive == true)
+                             .AsNoTracking()
+                             .ToListAsync();
+                     var menuDtoList = menus.Adapt<IEnumerable<MenuItemsDto>>();
+                     return AppResponse.Success(menuDtoList);
+   
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Fail<IEnumerable<MenuItemsDto>>(null, ex.Message, HttpStatusCodes.InternalServerError);
+            }
+        }
     }
 }

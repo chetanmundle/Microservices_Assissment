@@ -7,5 +7,6 @@ namespace RestaurantService.Service.IService
     {
         Task<AppResponse<MenuItemsDto>> GetMenuItemByIdAsync(int id);
         Task<AppResponse<IEnumerable<MenuItemsDto>>> GetAllMenuItemsAsync();
+        Task<AppResponse<IEnumerable<MenuItemsDto>>> SerarchMenuByRestaurant(SearchMenuByRestaurantDto model);
     }
 }
