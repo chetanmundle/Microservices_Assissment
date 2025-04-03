@@ -61,6 +61,12 @@ namespace DeliveryService.Service
                 if(!completeOrderRes.IsSuccess) 
                     return AppResponse.Response(false, completeOrderRes.Message, HttpStatusCodes.InternalServerError);
 
+                var deliveryPerson = await _appDbContext.DeliveryPersons
+                    .FirstOrDefaultAsync(d => d.DeliveryPersonId == delivery.DeliveryPersonId);
+                if (deliveryPerson == null) return AppResponse.Response(false, "Data Not found", HttpStatusCodes.NotFound);
+
+                deliveryPerson.IsAvailable = true;
+
                 delivery.Status = "Completed";
 
                 await _appDbContext.SaveChangesAsync();
