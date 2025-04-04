@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.Json;
 using DeliveryService.Model;
 using DeliveryService.Service.IService;
+using DeliveryService.Utility;
 public class RabbitMqListener : BackgroundService
 {
     private readonly IServiceProvider _serviceProvider;
@@ -17,7 +18,6 @@ public class RabbitMqListener : BackgroundService
     {
         var factory = new ConnectionFactory { HostName = "localhost" };
 
-        // Loop to maintain connection even if it drops
         while (!stoppingToken.IsCancellationRequested)
         {
             try
@@ -25,39 +25,62 @@ public class RabbitMqListener : BackgroundService
                 using var connection = await factory.CreateConnectionAsync();
                 using var channel = await connection.CreateChannelAsync();
 
-                await channel.QueueDeclareAsync(queue: "MicroserviceOrderQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                // Queue 1: MicroserviceOrderQueue
+                await ListenToQueue(channel, SD.MicroserviceOrderQueue, stoppingToken);
 
-                var consumer = new AsyncEventingBasicConsumer(channel);
-                consumer.ReceivedAsync += async (model, ea) =>
-                {
-                    var body = ea.Body.ToArray();
-                    var message = Encoding.UTF8.GetString(body);
+                // Queue 2: MicroserviceDeliveryQueue (example)
+                await ListenToQueue(channel, SD.MicroserviceCancelledOrderQueue, stoppingToken);
 
-                    // Deserialize the JSON message to AssignDeliveryDto object
-                    var assignDeliveryDto = JsonSerializer.Deserialize<AssignDeliveryDto>(message);
+                // Add more queues as needed...
 
-                    if (assignDeliveryDto != null)
-                    {
-                        // Create a scope to resolve the scoped service (IDeliveryService)
-                        using (var scope = _serviceProvider.CreateScope())
-                        {
-                            var deliveryService = scope.ServiceProvider.GetRequiredService<IDeliveryService>();
-                            await deliveryService.AssignDelivery(assignDeliveryDto);
-                        }
-                    }
-                };
-
-                await channel.BasicConsumeAsync(queue: "MicroserviceOrderQueue", autoAck: true, consumer: consumer);
-
-                // Wait until the stopping token is canceled before trying to reconnect
                 await Task.Delay(Timeout.Infinite, stoppingToken);
             }
             catch (Exception ex)
             {
-                // Handle the exception, possibly log it and try reconnecting
-                // You may want to use a delay or exponential backoff to avoid hammering the RabbitMQ server
-                await Task.Delay(5000, stoppingToken); // Retry after 5 seconds
+                // Log and retry after delay
+                await Task.Delay(5000, stoppingToken);
             }
         }
     }
+
+    private async Task ListenToQueue(IChannel channel, string queueName, CancellationToken stoppingToken)
+    {
+        await channel.QueueDeclareAsync(queue: queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+        var consumer = new AsyncEventingBasicConsumer(channel);
+        consumer.ReceivedAsync += async (model, ea) =>
+        {
+            var body = ea.Body.ToArray();
+            var message = Encoding.UTF8.GetString(body);
+
+            using var scope = _serviceProvider.CreateScope();
+
+            switch (queueName)
+            {
+                case SD.MicroserviceOrderQueue:
+                    var assignDeliveryDto = JsonSerializer.Deserialize<AssignDeliveryDto>(message);
+                    if (assignDeliveryDto != null)
+                    {
+                        var deliveryService = scope.ServiceProvider.GetRequiredService<IDeliveryService>();
+                        await deliveryService.AssignDelivery(assignDeliveryDto);
+                    }
+                    break;
+
+                case SD.MicroserviceCancelledOrderQueue:
+                    // Example: Deserialize and call a different service
+                    //var deliveryUpdateDto = JsonSerializer.Deserialize<DeliveryUpdateDto>(message);
+                    //if (deliveryUpdateDto != null)
+                    //{
+                    //    var deliveryService = scope.ServiceProvider.GetRequiredService<IDeliveryService>();
+                    //    await deliveryService.UpdateDeliveryStatus(deliveryUpdateDto);
+                    //}
+                    break;
+
+                    // Add more queue-specific handling here...
+            }
+        };
+
+        await channel.BasicConsumeAsync(queue: queueName, autoAck: true, consumer: consumer);
+    }
 }
+

@@ -26,5 +26,9 @@
             Json,
             MultipartFormData,
         }
+
+
+        public const string MicroserviceOrderQueue = "MicroserviceOrderQueue";
+        public const string MicroserviceCancelledOrderQueue = "MicroserviceCancelledOrderQueue";
     }
 }

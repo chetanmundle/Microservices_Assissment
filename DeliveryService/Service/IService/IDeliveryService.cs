@@ -7,5 +7,6 @@ namespace DeliveryService.Service.IService
     {
         Task<AppResponse<DeliveryDto>> AssignDelivery(AssignDeliveryDto req);
         Task<AppResponse> CompleteDeliveryAsync(int deliveryId);
+        Task<AppResponse> CancelDeliveryAsync(int deliveryId);
     }
 }

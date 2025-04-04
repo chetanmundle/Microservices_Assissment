@@ -1,4 +1,4 @@
-﻿namespace AuthService.Model
+﻿namespace DeliveryService.Model
 {
     public class UserDto
     {

@@ -23,6 +23,9 @@
         public const string Status_Completed = "Completed";
         public const string Status_Cancelled = "Cancelled";
 
+        public const string MicroserviceOrderQueue = "MicroserviceOrderQueue";
+        public const string MicroserviceCancelledOrderQueue = "MicroserviceCancelledOrderQueue";
+
         public enum ContentType
         {
             Json,

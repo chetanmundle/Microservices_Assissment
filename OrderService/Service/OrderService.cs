@@ -49,7 +49,9 @@ namespace OrderService.Service
                 {
                     OrderId = order.OrderId,
                 };
-                await _rabbitMqService.SendMessageAsync(assignDeliveryDto);
+
+                // Add into queue
+                await _rabbitMqService.SendMessageAsync(assignDeliveryDto, SD.MicroserviceOrderQueue);
 
                 return AppResponse.Success(order.Adapt<OrderDto>());
             }
@@ -128,6 +130,36 @@ namespace OrderService.Service
             catch (Exception ex)
             {
                 return AppResponse.Fail<IEnumerable<OrderDto>>([], ex.Message, HttpStatusCodes.InternalServerError);
+            }
+        }
+
+        public async Task<AppResponse> CancelOrderAsync(CancelOrderReqDto req)
+        {
+            try
+            {
+                var order = await _appDbContext.Orders.FirstOrDefaultAsync(o => o.OrderId == req.OrderId && o.IsDeleted == false);
+                if (order == null)
+                    return AppResponse.Response(false, "No Order Found for this Id", HttpStatusCodes.NotFound);
+
+                if(!string.Equals(SD.Status_Pending, order.Status))
+                {
+                    return AppResponse.Response(false, $"Your order is {order.Status}. Unble to Cancel It." , HttpStatusCodes.NotFound);
+                }
+
+                order.Status = SD.Status_Cancelled;
+                // Add into queue
+                var cancelDeliveryDto = new AssignDeliveryDto()
+                {
+                    OrderId = order.OrderId,
+                };
+                // Send to queue
+                await _rabbitMqService.SendMessageAsync(cancelDeliveryDto, SD.MicroserviceCancelledOrderQueue);
+                await _appDbContext.SaveChangesAsync();
+                return AppResponse.Response(true, "Your Order is Cancelled Successfully..");
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Response(false, ex.Message, HttpStatusCodes.InternalServerError);
             }
         }
     }

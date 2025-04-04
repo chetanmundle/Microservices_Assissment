@@ -10,6 +10,6 @@ namespace OrderService.Service.IService
         Task<AppResponse> CompleteOrderAsync(int id); // id is orderId
         Task<AppResponse<IEnumerable<OrderDto>>> GetAllOrdersAsync();
         Task<AppResponse<IEnumerable<OrderDto>>> GetOrdersByUserIdAsync(int id);
-
+        Task<AppResponse> CancelOrderAsync(CancelOrderReqDto req);
     }
 }
