@@ -185,6 +185,30 @@
       ],
       "UpstreamPathTemplate": "/users/login",
       "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/bookAndGetAvailblePartner",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7005
+        }
+      ],
+      "UpstreamPathTemplate": "/users/bookAndGetAvailblePartner",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/changeAvailabilityStatus",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7005
+        }
+      ],
+      "UpstreamPathTemplate": "/users/changeAvailabilityStatus",
+      "UpstreamHttpMethod": [ "POST" ]
     }
   ],
   "GlobalConfiguration": { "BaseUrl": "http://localhost:5000" }

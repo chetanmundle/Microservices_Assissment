@@ -1,12 +1,10 @@
 ﻿using App.Common.Models;
-using AuthService.Model;
+using DeliveryService.Model;
 
-namespace AuthService.Service.IService
+namespace DeliveryService.Service.IService
 {
     public interface IUserService
     {
-        Task<AppResponse> Register(UserDto userDto);
-        Task<AppResponse<LoginResDto>> Login(LoginReq req);
         Task<AppResponse<UserDto>> BookAndGetAvailablePartenerAsync();
         Task<AppResponse> ChangeAvailabilityStatusAsync(ChangeAvailabilityReqDto req);
     }

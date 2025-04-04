@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "OrderService.Controllers.OrdersController",
+    "Method": "CancelOrder",
+    "RelativePath": "api/orders/cancelOrder",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "OrderService.Model.CancelOrderReqDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "OrderService.Controllers.OrdersController",
     "Method": "CompleteOrderByOrderId",
     "RelativePath": "api/orders/completeorder/orderid/{id}",
     "HttpMethod": "GET",

@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "AuthService.Controllers.UsersController",
+    "Method": "BookAndGetAvailablePartener",
+    "RelativePath": "api/users/bookAndGetAvailblePartner",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthService.Controllers.UsersController",
+    "Method": "ChangeAvailabilityStatus",
+    "RelativePath": "api/users/changeAvailabilityStatus",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "AuthService.Model.ChangeAvailabilityReqDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AuthService.Controllers.UsersController",
     "Method": "Login",
     "RelativePath": "api/users/login",
     "HttpMethod": "POST",

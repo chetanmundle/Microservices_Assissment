@@ -1,5 +1,7 @@
 ﻿using AuthService.Model;
 using AuthService.Service.IService;
+using AuthService.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +30,22 @@ namespace AuthService.Controllers
         {
             var serviceRes = await _userService.Login(model);
             return Ok(serviceRes);
+        }
+
+        [HttpGet("bookAndGetAvailblePartner")]
+        //[Authorize(Roles = SD.CustomerRole)]
+        public async Task<IActionResult> BookAndGetAvailablePartener()
+        {
+            var result = await _userService.BookAndGetAvailablePartenerAsync();
+            return Ok(result);
+        }
+
+        [HttpPost("changeAvailabilityStatus")]
+        //[Authorize(Roles = $"{SD.CustomerRole}, {SD.DeliveryPartnerRole}")]
+        public async Task<IActionResult> ChangeAvailabilityStatus(ChangeAvailabilityReqDto req)
+        {
+            var result = await _userService.ChangeAvailabilityStatusAsync(req);
+            return Ok(result);
         }
     }
 }

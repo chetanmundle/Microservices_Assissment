@@ -4,6 +4,6 @@ namespace OrderService.Service.IService
 {
     public interface IRabbitMqService
     {
-        Task<bool> SendMessageAsync(AssignDeliveryDto message);
+        Task<bool> SendMessageAsync(AssignDeliveryDto message, string queueName);
     }
 }

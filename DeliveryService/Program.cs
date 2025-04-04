@@ -28,6 +28,7 @@ namespace DeliveryService
             builder.Services.AddScoped<ITokenProvider, TokenProvider>();
             builder.Services.AddScoped<IBaseService, BaseService>();
             builder.Services.AddScoped<IOrderService, OrderService>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             builder.Services.AddDbContext<AppDbContext>(option =>
             {

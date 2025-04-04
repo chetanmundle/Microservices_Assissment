@@ -53,5 +53,12 @@ namespace OrderService.Controllers
             return Ok(serviceResponse);
         }
 
+        [HttpPost("cancelOrder")]
+        public async Task<IActionResult> CancelOrder(CancelOrderReqDto model)
+        {
+            var serviceResponse = await _orderService.CancelOrderAsync(model);
+            return Ok(serviceResponse);
+        }
+
     }
 }

@@ -3,6 +3,7 @@ using App.Common.Models;
 using DeliveryService.Entities;
 using DeliveryService.Model;
 using DeliveryService.Service.IService;
+using DeliveryService.Utility;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,37 +13,53 @@ namespace DeliveryService.Service
     {
         private readonly AppDbContext _appDbContext;
         private readonly IOrderService _orderService;
-        public DeliveryService(AppDbContext appDbContext, IOrderService orderService)
+        private readonly IUserService _userService;
+        public DeliveryService(
+            AppDbContext appDbContext,
+            IOrderService orderService,
+            IUserService userService)
         {
             _appDbContext = appDbContext;
             _orderService = orderService;
+            _userService = userService;
         }
         public async Task<AppResponse<DeliveryDto>> AssignDelivery(AssignDeliveryDto req)
         {
+            int deliveryId = 0;
             try
             {
-                var deliveryPerson = await _appDbContext.DeliveryPersons
-                    .FirstOrDefaultAsync(d => d.IsAvailable == true && d.IsDeleted == false && d.IsActive == true);
-                if(deliveryPerson == null)
-                {
-                    return AppResponse.Fail<DeliveryDto>(null, "No Delivery Person is available at that time", HttpStatusCodes.NotFound);
-                }
+                //var deliveryPerson = await _appDbContext.DeliveryPersons
+                //    .FirstOrDefaultAsync(d => d.IsAvailable == true && d.IsDeleted == false && d.IsActive == true);
+                var deliveryPerson = await _userService.BookAndGetAvailablePartenerAsync();
+                if (!deliveryPerson.IsSuccess)
+                    return AppResponse.Fail<DeliveryDto>(null, deliveryPerson.Message, HttpStatusCodes.NotFound);
+
+                deliveryId = deliveryPerson.Data.UserId;
                 var delivery = new Delivery()
                 {
-                    DeliveryPersonId = deliveryPerson.DeliveryPersonId,
+                    DeliveryPersonId = deliveryPerson.Data.UserId,
                     OrderId = req.OrderId,
-                    Status = "Pending",
+                    Status = SD.Status_Pending,
                 };
 
                 await _appDbContext.AddAsync(delivery);
-                deliveryPerson.IsAvailable = false;
                 await _appDbContext.SaveChangesAsync();
 
                 return AppResponse.Success(delivery.Adapt<DeliveryDto>());
             }
             catch (Exception ex)
             {
-                return AppResponse.Fail<DeliveryDto>(null, ex.Message);
+                // make the delivery person Free becouse of fails to create delivery
+                if(deliveryId != 0)
+                {
+                    var changeDto = new ChangeAvailabilityReqDto()
+                    {
+                        UserId = deliveryId,
+                        IsAvailable = true,
+                    };
+                    await _userService.ChangeAvailabilityStatusAsync(changeDto);
+                }
+                return AppResponse.Fail<DeliveryDto>(null, ex.Message, HttpStatusCodes.InternalServerError);
             }
         }
 
@@ -61,13 +78,20 @@ namespace DeliveryService.Service
                 if(!completeOrderRes.IsSuccess) 
                     return AppResponse.Response(false, completeOrderRes.Message, HttpStatusCodes.InternalServerError);
 
-                var deliveryPerson = await _appDbContext.DeliveryPersons
-                    .FirstOrDefaultAsync(d => d.DeliveryPersonId == delivery.DeliveryPersonId);
-                if (deliveryPerson == null) return AppResponse.Response(false, "Data Not found", HttpStatusCodes.NotFound);
+                //var deliveryPerson = await _appDbContext.DeliveryPersons
+                //    .FirstOrDefaultAsync(d => d.DeliveryPersonId == delivery.DeliveryPersonId);
+                var changeDto = new ChangeAvailabilityReqDto()
+                {
+                    UserId = deliveryId,
+                    IsAvailable = true,
+                };
+                var changeAvailabilityStatus = await _userService.ChangeAvailabilityStatusAsync(changeDto);
+                if (!changeAvailabilityStatus.IsSuccess) 
+                    return AppResponse.Response(false, changeAvailabilityStatus.Message, HttpStatusCodes.NotFound);
 
-                deliveryPerson.IsAvailable = true;
+                //deliveryPerson.IsAvailable = true;
 
-                delivery.Status = "Completed";
+                delivery.Status = SD.Status_Completed;
 
                 await _appDbContext.SaveChangesAsync();
                 return AppResponse.Response(true, "Delivery Completed Successfully", HttpStatusCodes.OK);
@@ -76,6 +100,11 @@ namespace DeliveryService.Service
             {
                 return AppResponse.Response(false, ex.Message, HttpStatusCodes.InternalServerError);
             }
+        }
+
+        public Task<AppResponse> CancelDeliveryAsync(int deliveryId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
