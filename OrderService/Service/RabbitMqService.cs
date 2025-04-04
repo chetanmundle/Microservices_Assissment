@@ -14,12 +14,12 @@ namespace OrderService.Service
             using var connection = await factory.CreateConnectionAsync();
             using var channel = await connection.CreateChannelAsync();
 
-            await channel.QueueDeclareAsync(queue: "MicroserviceTest", durable: false, exclusive: false, autoDelete: false,
+            await channel.QueueDeclareAsync(queue: "MicroserviceOrderQueue", durable: false, exclusive: false, autoDelete: false,
                 arguments: null);
 
             var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
 
-            await channel.BasicPublishAsync(exchange: string.Empty, routingKey: "MicroserviceTest", body: body);
+            await channel.BasicPublishAsync(exchange: string.Empty, routingKey: "MicroserviceOrderQueue", body: body);
 
             return true;
         }
