@@ -25,7 +25,7 @@ public class RabbitMqListener : BackgroundService
                 using var connection = await factory.CreateConnectionAsync();
                 using var channel = await connection.CreateChannelAsync();
 
-                await channel.QueueDeclareAsync(queue: "MicroserviceTest", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                await channel.QueueDeclareAsync(queue: "MicroserviceOrderQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
                 var consumer = new AsyncEventingBasicConsumer(channel);
                 consumer.ReceivedAsync += async (model, ea) =>
@@ -47,7 +47,7 @@ public class RabbitMqListener : BackgroundService
                     }
                 };
 
-                await channel.BasicConsumeAsync(queue: "MicroserviceTest", autoAck: true, consumer: consumer);
+                await channel.BasicConsumeAsync(queue: "MicroserviceOrderQueue", autoAck: true, consumer: consumer);
 
                 // Wait until the stopping token is canceled before trying to reconnect
                 await Task.Delay(Timeout.Infinite, stoppingToken);
