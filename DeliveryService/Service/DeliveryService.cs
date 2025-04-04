@@ -3,6 +3,7 @@ using App.Common.Models;
 using DeliveryService.Entities;
 using DeliveryService.Model;
 using DeliveryService.Service.IService;
+using DeliveryService.Utility;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,7 +32,7 @@ namespace DeliveryService.Service
                 {
                     DeliveryPersonId = deliveryPerson.DeliveryPersonId,
                     OrderId = req.OrderId,
-                    Status = "Pending",
+                    Status = SD.Status_Pending,
                 };
 
                 await _appDbContext.AddAsync(delivery);
@@ -67,7 +68,7 @@ namespace DeliveryService.Service
 
                 deliveryPerson.IsAvailable = true;
 
-                delivery.Status = "Completed";
+                delivery.Status = SD.Status_Completed;
 
                 await _appDbContext.SaveChangesAsync();
                 return AppResponse.Response(true, "Delivery Completed Successfully", HttpStatusCodes.OK);

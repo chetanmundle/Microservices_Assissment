@@ -6,6 +6,7 @@ using OrderService.Data;
 using OrderService.Entities;
 using OrderService.Model;
 using OrderService.Service.IService;
+using OrderService.Utility;
 
 namespace OrderService.Service
 {
@@ -38,7 +39,7 @@ namespace OrderService.Service
                 {
                     MenuItemId = req.MenuItemId,
                     RestaurantId = menuItemRes.Data.RestaurantId,
-                    Status =  "Pending",
+                    Status =  SD.Status_Pending,
                     UserId = req.UserId,
                 };
 
@@ -84,7 +85,7 @@ namespace OrderService.Service
             {
                 var order = await _appDbContext.Orders.FirstOrDefaultAsync(o => o.OrderId == id);
                 if (order is null) return AppResponse.Response(false, "Order with this Id not Found", HttpStatusCodes.NotFound);
-                order.Status = "Completed";
+                order.Status = SD.Status_Completed;
                 
                 await _appDbContext.SaveChangesAsync();
                 return AppResponse.Response(true, "Order Completed Successfully", HttpStatusCodes.OK);
