@@ -30,5 +30,8 @@
 
         public const string MicroserviceOrderQueue = "MicroserviceOrderQueue";
         public const string MicroserviceCancelledOrderQueue = "MicroserviceCancelledOrderQueue";
+
+        public const string CustomerRole = "Customer";
+        public const string DeliveryPartnerRole = "DeliveryPartner";
     }
 }

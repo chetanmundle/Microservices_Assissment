@@ -59,7 +59,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 1,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4353),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3630),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Gulab Jamun",
@@ -69,7 +69,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 2,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4364),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3633),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Paneer Butter Masala",
@@ -79,7 +79,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 3,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4365),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3635),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Chicken Biryani",
@@ -89,7 +89,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 4,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4367),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3636),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Mutton Rogan Josh",
@@ -99,7 +99,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 5,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4368),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3637),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Dal Makhani",
@@ -109,7 +109,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 6,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4372),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3642),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Butter Naan",
@@ -119,7 +119,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 7,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4373),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3643),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Masala Dosa",
@@ -129,7 +129,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 8,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4374),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3644),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Idli Sambar",
@@ -139,7 +139,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 9,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4375),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3645),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Tandoori Chicken",
@@ -149,7 +149,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 10,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4377),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3647),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Fish Curry",
@@ -159,7 +159,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 11,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4378),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3649),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Veg Pulao",
@@ -169,7 +169,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 12,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4379),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3650),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Rajma Chawal",
@@ -179,7 +179,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 13,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4380),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3651),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Aloo Paratha",
@@ -189,7 +189,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 14,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4382),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3652),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Malai Kofta",
@@ -199,7 +199,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 15,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4383),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3653),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Shahi Paneer",
@@ -209,7 +209,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 16,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4384),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3655),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Chole Bhature",
@@ -219,7 +219,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 17,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4385),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3656),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Chicken Tikka Masala",
@@ -229,7 +229,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 18,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4387),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3658),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Prawn Curry",
@@ -239,7 +239,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 19,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4388),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3659),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Mushroom Masala",
@@ -249,7 +249,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 20,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4389),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3661),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Egg Curry",
@@ -259,7 +259,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 21,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4390),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3662),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Hakka Noodles",
@@ -269,7 +269,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 22,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4391),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3663),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Spring Rolls",
@@ -279,7 +279,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 23,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4392),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3664),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Chicken Manchurian",
@@ -289,7 +289,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 24,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4393),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3666),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Veg Manchurian",
@@ -299,7 +299,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 25,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4394),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3667),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Mutton Keema",
@@ -309,7 +309,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 26,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4395),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3668),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Bhindi Masala",
@@ -319,7 +319,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 27,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4396),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3669),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Dal Tadka",
@@ -329,7 +329,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 28,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4397),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3670),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kadhai Paneer",
@@ -339,7 +339,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 29,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4398),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3672),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Jeera Rice",
@@ -349,7 +349,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             MenuItemId = 30,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4399),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3673),
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Chocolate Brownie",
@@ -387,7 +387,7 @@ namespace RestaurantService.Migrations
                         new
                         {
                             RestaurantId = 1,
-                            CreatedDate = new DateTime(2025, 4, 1, 17, 22, 21, 625, DateTimeKind.Local).AddTicks(4257),
+                            CreatedDate = new DateTime(2025, 4, 6, 18, 47, 13, 384, DateTimeKind.Local).AddTicks(3516),
                             IsActive = true,
                             IsDeleted = false,
                             RestaurantName = "Arav Dhaba"

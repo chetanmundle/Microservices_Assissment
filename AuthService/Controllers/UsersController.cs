@@ -41,7 +41,7 @@ namespace AuthService.Controllers
         }
 
         [HttpPost("changeAvailabilityStatus")]
-        //[Authorize(Roles = $"{SD.CustomerRole}, {SD.DeliveryPartnerRole}")]
+        [Authorize(Roles = $"{SD.CustomerRole}, {SD.DeliveryPartnerRole}")]
         public async Task<IActionResult> ChangeAvailabilityStatus(ChangeAvailabilityReqDto req)
         {
             var result = await _userService.ChangeAvailabilityStatusAsync(req);

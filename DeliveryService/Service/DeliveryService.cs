@@ -70,7 +70,8 @@ namespace DeliveryService.Service
                 var delivery = await _appDbContext.Deliveries
                     .FirstOrDefaultAsync(d => d.DeliveryId == deliveryId);
 
-                if(delivery == null) return AppResponse.Response(false, "Data Not found",HttpStatusCodes.NotFound);
+                if(delivery == null || string.Equals(delivery.Status, SD.Status_Completed)) 
+                    return AppResponse.Response(false, "Data Not found",HttpStatusCodes.NotFound);
 
                 // Here http Call to order
                 var completeOrderRes = await _orderService.CompleteOrderAsync(delivery.OrderId);
@@ -82,7 +83,7 @@ namespace DeliveryService.Service
                 //    .FirstOrDefaultAsync(d => d.DeliveryPersonId == delivery.DeliveryPersonId);
                 var changeDto = new ChangeAvailabilityReqDto()
                 {
-                    UserId = deliveryId,
+                    UserId = delivery.DeliveryPersonId,
                     IsAvailable = true,
                 };
                 var changeAvailabilityStatus = await _userService.ChangeAvailabilityStatusAsync(changeDto);

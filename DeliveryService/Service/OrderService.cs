@@ -21,7 +21,7 @@ namespace DeliveryService.Service
                 {
                     ApiType = SD.ApiType.GET,
                     Url = SD.ApiGatwayAPIBase + "/orders/completeorder/orderid/" + id
-                }, false);
+                }, true);
             }
 			catch (Exception ex)
 			{

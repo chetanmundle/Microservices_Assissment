@@ -40,7 +40,7 @@ namespace DeliveryService.Service
                     ApiType = SD.ApiType.POST,
                     Url = SD.ApiGatwayAPIBase + "/users/changeAvailabilityStatus",
                     Data = req
-                }, false);
+                }, true);
 
             }
             catch (Exception ex)

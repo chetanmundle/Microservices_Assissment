@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "L8Gk2wOf1iJv9x4yLT2YbhNiXwOhIzmv94VTTzS3xzM=",
+  "Hash": "+L5yPQd+SF3PXKtldqq2IMkjjcAyPmvfFyfVOp/bUWQ=",
   "Source": "DeliveryService",
   "BasePath": "_content/DeliveryService",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

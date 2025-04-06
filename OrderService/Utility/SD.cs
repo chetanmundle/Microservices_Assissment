@@ -8,8 +8,6 @@
         //public static string ShoppingCartAPIBase { get; set; }
         public static string OrderAPIBase { get; set; }
         public static string ApiGatwayAPIBase { get; set; } = "https://localhost:7001";
-        public const string RoleAdmin = "ADMIN";
-        public const string RoleCustomer = "CUSTOMER";
         public const string TokenCookie = "JWTToken";
         public enum ApiType
         {
@@ -31,5 +29,8 @@
             Json,
             MultipartFormData,
         }
+
+        public const string CustomerRole = "Customer";
+        public const string DeliveryPartnerRole = "DeliveryPartner";
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrderService.Model;
 using OrderService.Service.IService;
+using OrderService.Utility;
 
 namespace OrderService.Controllers
 {
@@ -18,7 +19,7 @@ namespace OrderService.Controllers
         }
 
         [HttpPost("placeorder")]
-        [Authorize]
+        [Authorize(Roles = SD.CustomerRole)]
         public async Task<IActionResult> PlaceOrder(PlaceOrderDto model)
         {
             var serviceResponse = await _orderService.PlaceOrderAsync(model);
@@ -26,6 +27,7 @@ namespace OrderService.Controllers
         }
 
         [HttpGet("getorderbyid/{id:int}")]
+        [Authorize(Roles = $"{SD.CustomerRole}, {SD.DeliveryPartnerRole}")]
         public async Task<IActionResult> GetOrderById(int id)
         {
             var serviceResponse = await _orderService.GetOrderById(id);
@@ -33,6 +35,7 @@ namespace OrderService.Controllers
         }
 
         [HttpGet("completeorder/orderid/{id:int}")]
+        [Authorize(Roles = SD.DeliveryPartnerRole)]
         public async Task<IActionResult> CompleteOrderByOrderId(int id)
         {
             var serviceResponse = await _orderService.CompleteOrderAsync(id);
@@ -47,6 +50,7 @@ namespace OrderService.Controllers
         }
 
         [HttpGet("getOrdersByUserId/{id:int}")]
+        [Authorize(Roles = SD.CustomerRole)]
         public async Task<IActionResult> GetOrdersByUserId(int id)
         {
             var serviceResponse = await _orderService.GetOrdersByUserIdAsync(id);
@@ -54,6 +58,7 @@ namespace OrderService.Controllers
         }
 
         [HttpPost("cancelOrder")]
+        [Authorize(Roles = $"{SD.CustomerRole}, {SD.DeliveryPartnerRole}")]
         public async Task<IActionResult> CancelOrder(CancelOrderReqDto model)
         {
             var serviceResponse = await _orderService.CancelOrderAsync(model);

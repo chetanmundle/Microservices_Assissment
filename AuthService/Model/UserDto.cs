@@ -9,6 +9,7 @@
         public string Role { get; set; }
         public string PhoneNumber { get; set; }
         public bool? IsAvailble { get; set; }
+        public string Password {  get; set; } 
   
     }
 }

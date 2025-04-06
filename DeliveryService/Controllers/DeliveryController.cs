@@ -1,5 +1,7 @@
 ﻿using DeliveryService.Model;
 using DeliveryService.Service.IService;
+using DeliveryService.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +26,7 @@ namespace DeliveryService.Controllers
         }
 
         [HttpGet("completedelivery/deliveryid/{id:int}")]
+        [Authorize(Roles = SD.DeliveryPartnerRole)]
         public async Task<IActionResult> CompleteDeliveryByDeliveryId(int id)
         {
             var serviceResponse = await _deliveryService.CompleteDeliveryAsync(id);

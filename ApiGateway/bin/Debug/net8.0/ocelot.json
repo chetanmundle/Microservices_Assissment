@@ -90,8 +90,12 @@
           "Port": 7003
         }
       ],
-      "UpstreamPathTemplate": "/orders/getorderbyid/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamPathTemplate": "/orders/getdeliveryStatus/orderId/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/orders/completeorder/orderid/{id}",
@@ -103,7 +107,11 @@
         }
       ],
       "UpstreamPathTemplate": "/orders/completeorder/orderid/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/orders/getAllOrders",
@@ -145,7 +153,11 @@
         }
       ],
       "UpstreamPathTemplate": "/delivery/assigndelivery",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/api/delivery/completedelivery/deliveryid/{id}",
@@ -157,7 +169,11 @@
         }
       ],
       "UpstreamPathTemplate": "/delivery/completedelivery/deliveryid/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
 
 
@@ -208,7 +224,11 @@
         }
       ],
       "UpstreamPathTemplate": "/users/changeAvailabilityStatus",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": { "BaseUrl": "http://localhost:5000" }
