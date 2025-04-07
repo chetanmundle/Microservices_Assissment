@@ -70,8 +70,12 @@ namespace DeliveryService.Service
                 var delivery = await _appDbContext.Deliveries
                     .FirstOrDefaultAsync(d => d.DeliveryId == deliveryId);
 
-                if(delivery == null || string.Equals(delivery.Status, SD.Status_Completed)) 
+                if(delivery == null) 
                     return AppResponse.Response(false, "Data Not found",HttpStatusCodes.NotFound);
+
+
+                if (!string.Equals(delivery.Status, SD.Status_Pending))
+                    return AppResponse.Response(false, $"Delivery is {delivery.Status}. Unble to Complete", HttpStatusCodes.NotFound);
 
                 // Here http Call to order
                 var completeOrderRes = await _orderService.CompleteOrderAsync(delivery.OrderId);
@@ -103,9 +107,37 @@ namespace DeliveryService.Service
             }
         }
 
-        public Task<AppResponse> CancelDeliveryAsync(int deliveryId)
+        public async Task<AppResponse> CancelDeliveryAsync(int orderId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var delivery = await _appDbContext.Deliveries
+                    .FirstOrDefaultAsync(d => d.OrderId == orderId);
+
+                if (delivery is null || !string.Equals(delivery.Status, SD.Status_Pending)) 
+                    return AppResponse.Response(false, "Data Not Found", HttpStatusCodes.NotFound);
+
+                // http call to free delivery partner
+                var changeDto = new ChangeAvailabilityReqDto()
+                {
+                    UserId = delivery.DeliveryPersonId,
+                    IsAvailable = true,
+                };
+                
+                var changeAvailabilityStatus = await _userService.ChangeAvailabilityStatusAsync(changeDto);
+                if (!changeAvailabilityStatus.IsSuccess)
+                    return AppResponse.Response(false, changeAvailabilityStatus.Message, HttpStatusCodes.NotFound);
+
+                delivery.Status = SD.Status_Cancelled;
+
+                await _appDbContext.SaveChangesAsync();
+
+                return AppResponse.Response(true, "Delivery Canelled Successfully", HttpStatusCodes.OK);
+            }
+            catch (Exception ex)
+            {
+                return AppResponse.Response(false, ex.Message, HttpStatusCodes.InternalServerError);
+            }
         }
     }
 }

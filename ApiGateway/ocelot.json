@@ -141,6 +141,22 @@
         "AllowedScopes": []
       }
     },
+    {
+      "DownstreamPathTemplate": "/api/orders/cancelOrder",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/cancelOrder",
+      "UpstreamHttpMethod": [ "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
 
     // Delivery Service
     {
@@ -224,11 +240,7 @@
         }
       ],
       "UpstreamPathTemplate": "/users/changeAvailabilityStatus",
-      "UpstreamHttpMethod": [ "POST" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      }
+      "UpstreamHttpMethod": [ "POST" ]
     }
   ],
   "GlobalConfiguration": { "BaseUrl": "http://localhost:5000" }

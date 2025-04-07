@@ -282,3 +282,4 @@ D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\AuthService\ob
 D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\AuthService\obj\Debug\net8.0\AuthService.pdb
 D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\AuthService\obj\Debug\net8.0\AuthService.genruntimeconfig.cache
 D:\Visual Studio\Microservice_Assissment\Microservices_Assissment\AuthService\obj\Debug\net8.0\ref\AuthService.dll
+D:\Assessment\Microservices_Assessment\Microservices_Assissment\AuthService\bin\Debug\net8.0\FluentValidation.dll
