@@ -65,6 +65,7 @@ namespace AuthService.Service
                 if (isExist) return AppResponse.Response(false, "User with this Email is already Exist", HttpStatusCodes.Conflict);
 
                 var user = userDto.Adapt<User>();
+                user.IsAvailble = SD.DeliveryPartnerRole == user.Role ? true : null;
                 await _appDbcontext.Users.AddAsync(user);
 
                 await _appDbcontext.SaveChangesAsync();
