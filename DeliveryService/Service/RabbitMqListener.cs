@@ -68,12 +68,12 @@ public class RabbitMqListener : BackgroundService
 
                 case SD.MicroserviceCancelledOrderQueue:
                     // Example: Deserialize and call a different service
-                    //var deliveryUpdateDto = JsonSerializer.Deserialize<DeliveryUpdateDto>(message);
-                    //if (deliveryUpdateDto != null)
-                    //{
-                    //    var deliveryService = scope.ServiceProvider.GetRequiredService<IDeliveryService>();
-                    //    await deliveryService.UpdateDeliveryStatus(deliveryUpdateDto);
-                    //}
+                    var deliveryUpdateDto = JsonSerializer.Deserialize<AssignDeliveryDto>(message);
+                    if (deliveryUpdateDto != null)
+                    {
+                        var deliveryService = scope.ServiceProvider.GetRequiredService<IDeliveryService>();
+                        await deliveryService.CancelDeliveryAsync(deliveryUpdateDto.OrderId);
+                    }
                     break;
 
                     // Add more queue-specific handling here...

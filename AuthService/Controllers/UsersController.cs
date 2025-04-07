@@ -33,7 +33,6 @@ namespace AuthService.Controllers
         }
 
         [HttpGet("bookAndGetAvailblePartner")]
-        //[Authorize(Roles = SD.CustomerRole)]
         public async Task<IActionResult> BookAndGetAvailablePartener()
         {
             var result = await _userService.BookAndGetAvailablePartenerAsync();
@@ -41,7 +40,6 @@ namespace AuthService.Controllers
         }
 
         [HttpPost("changeAvailabilityStatus")]
-        [Authorize(Roles = $"{SD.CustomerRole}, {SD.DeliveryPartnerRole}")]
         public async Task<IActionResult> ChangeAvailabilityStatus(ChangeAvailabilityReqDto req)
         {
             var result = await _userService.ChangeAvailabilityStatusAsync(req);

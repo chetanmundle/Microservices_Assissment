@@ -3,6 +3,7 @@ using App.Common.Models;
 using AuthService.Data;
 using AuthService.Entities;
 using AuthService.Model;
+using AuthService.Model.validator;
 using AuthService.Service.IService;
 using AuthService.Utility;
 using Mapster;
@@ -52,6 +53,14 @@ namespace AuthService.Service
         {
             try
             {
+                var validator = new UserDtoValidotor();
+                var validate = validator.Validate(userDto);
+
+                if (!validate.IsValid)
+                {
+                    var errorMessage = validate.Errors[0].ErrorMessage;
+                    return AppResponse.Response(false, errorMessage, HttpStatusCodes.BadRequest);
+                }
                 var isExist = await _appDbcontext.Users.AnyAsync(x => x.Email.ToLower() == userDto.Email.ToLower());
                 if (isExist) return AppResponse.Response(false, "User with this Email is already Exist", HttpStatusCodes.Conflict);
 
